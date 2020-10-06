@@ -19,7 +19,6 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.geckodriver
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.yarn
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs
-RUN ~/.nix-profile/bin/gem update --system
 
 # Ruby on Rails
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gmp
@@ -32,6 +31,7 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gnupatch
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.memcached
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.postgresql
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.imagemagick
+RUN ~/.nix-profile/bin/gem install rails
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
