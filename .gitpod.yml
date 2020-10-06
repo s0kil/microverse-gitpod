@@ -30,10 +30,8 @@ vscode:
     - stylelint.vscode-stylelint@0.84.0:9CBp08IKCKrtFWDGzEgyjQ==
     - vscode.css-language-features@1.49.3:nBcGM2IyrYtPpczOUCFaoQ==
     - gencer.html-slim-scss-css-class-completion@1.7.7:IQJ5yzbxHud/K25s5zXOUw==
-    - vscode.image-preview@1.49.3:XTKQI9S6/le5nBELNno/CQ==
     - vscode.json-language-features@1.49.3:sjA7NJrsY5IIBZwEplr5uw==
     - vscode.docker@1.49.3:u8ak975skeaO3/SHKX0wsw==
-    - vscode.markdown-language-features@1.49.3:OenYKpsOnN8ePPtRt68IQw==
     - ms-vscode.js-debug@1.50.0:9GlGCUPeE17EVVLGPTABIg==
     - HansUXdev.javascript-first-snippets@0.0.5:PqRpccw5mn10agYrz6/Wrw==
     - dbaeumer.vscode-eslint@2.1.8:02aHhbJ0Q4aGdjHXlTdVKg==
@@ -43,7 +41,6 @@ vscode:
     - syler.sass-indented@1.8.12:p+MmW74V1Fvj6+I5xXlUcA==
     - SonarSource.sonarlint-vscode@1.17.0:ykgEHpHsIPlCEJ+/QYVcrw==
     - vincaslt.highlight-matching-tag@0.9.9:vzmHwY/WukBrdwbHugD6SQ==
-    - TabNine.tabnine-vscode@2.8.8:L5E0LibEqe7ssMuuNuY9Hw==
     - svelte.svelte-vscode@102.1.1:uSx6lY6QVmt3AsWibDEyxg==
     - fivethree.vscode-svelte-snippets@0.5.0:rRkcaFrMb8wbTuH6kbGEQQ==
     - esbenp.prettier-vscode@5.7.1:GDba64T6G+TUi1qmc6BE3A==
