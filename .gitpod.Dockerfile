@@ -47,7 +47,8 @@ RUN /bin/bash -c "npm update --global \
   && npm install hint lighthouse eslint stylelint --global"
 
 # Editor Tools
-RUN /bin/bash -c "gem install htmlbeautifier solargraph --no-document"
+RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
+  && gem install htmlbeautifier solargraph --no-document"
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
