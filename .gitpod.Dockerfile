@@ -6,4 +6,4 @@ ENV NIXPKGS_ALLOW_UNFREE=1
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.chromium nixpkgs.chromedriver
 
 # Update
-RUN gem update --system
+RUN gem update --system && gem update
