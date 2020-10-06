@@ -39,7 +39,11 @@ RUN nix-env -iA nixpkgs.imagemagick
 RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
   && gem update --system --no-document \
   && gem update --no-document \
-  && gem install rails --no-document"
+  && gem install rubocop rails rspec --no-document"
+
+# HTML, CSS, JavaScript
+RUN /bin/bash -c "npm update --global \
+  && npm install hint lighthouse eslint stylelint --global"
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
