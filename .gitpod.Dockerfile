@@ -1,8 +1,5 @@
 FROM gitpod/workspace-full-vnc
 
-# Prerequisites
-RUN sudo apt install build-essential --yes
-
 # Install Nix
 RUN curl -L https://nixos.org/nix/install | sh
 RUN echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
