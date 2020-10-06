@@ -29,7 +29,7 @@
 
 ## How To Utilize
 
-- Copy the `.gitpod.yml` file (with its contents) to the root folder of your project directory
+- Copy the `.gitpod.yml` file (with its contents) to the root folder of your Git project directory
 - Commit and push to GitHub
 - Open your GitHub project in Gitpod:
   - Example: `https://gitpod.io/#https://github.com/e71az/private-events`
