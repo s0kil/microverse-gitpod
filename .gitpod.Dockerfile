@@ -4,33 +4,34 @@ FROM gitpod/workspace-full-vnc
 RUN curl -L https://nixos.org/nix/install | sh
 RUN echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
 
+ENV PATH="~/.nix-profile/bin:${PATH}"
 ENV NIXPKGS_ALLOW_UNFREE=1
 
 # Chrome + Chromium + Driver
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.chromium
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.chromedriver
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.google-chrome
+RUN nix-env -iA nixpkgs.chromium
+RUN nix-env -iA nixpkgs.chromedriver
+RUN nix-env -iA nixpkgs.google-chrome
 
 # Firefox + Driver
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.firefox
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.geckodriver
+RUN nix-env -iA nixpkgs.firefox
+RUN nix-env -iA nixpkgs.geckodriver
 
 # Common
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gmp
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.mupdf
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.redis
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.sqlite
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ffmpeg
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libyaml
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libtool
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.mysql80
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gnupatch
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.memcached
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.postgresql
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.imagemagick
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libxml2
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libxslt
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libsass
+RUN nix-env -iA nixpkgs.gmp
+RUN nix-env -iA nixpkgs.mupdf
+RUN nix-env -iA nixpkgs.redis
+RUN nix-env -iA nixpkgs.sqlite
+RUN nix-env -iA nixpkgs.ffmpeg
+RUN nix-env -iA nixpkgs.libyaml
+RUN nix-env -iA nixpkgs.libtool
+RUN nix-env -iA nixpkgs.mysql80
+RUN nix-env -iA nixpkgs.libxml2
+RUN nix-env -iA nixpkgs.libxslt
+RUN nix-env -iA nixpkgs.libsass
+RUN nix-env -iA nixpkgs.gnupatch
+RUN nix-env -iA nixpkgs.memcached
+RUN nix-env -iA nixpkgs.postgresql
+RUN nix-env -iA nixpkgs.imagemagick
 
 # Ruby on Rails
 RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
