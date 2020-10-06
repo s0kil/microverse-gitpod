@@ -32,22 +32,11 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libxml2
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libxslt
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libsass
 
-# Development Tools
-# RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.yarn
-# RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby_2_7
-# RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs-14_x
-
 # Ruby on Rails
-RUN /bin/bash -c "source ~/.rvm/scripts/rvm && gem update --system --no-document && gem update --no-document"
-
-# RUN . ~/.rvm/scripts/rvm
-# RUN gem pristine --all
-# RUN gem update --no-document
-#RUN ~/.nix-profile/bin/gem install psych --no-document --force
-#RUN ~/.nix-profile/bin/gem install rails --no-document
-
-# Update `.bashrc`
-# RUN echo "PATH=\"$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH\""
+RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
+  && gem update --system --no-document \
+  && gem update --no-document \
+  && gem install rails --no-document"
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
