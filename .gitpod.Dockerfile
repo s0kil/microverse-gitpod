@@ -2,6 +2,5 @@ FROM gitpod/workspace-full-vnc
 
 RUN curl -L https://nixos.org/nix/install | sh
 RUN echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
-RUN . ~/.nix-profile/etc/profile.d/nix.sh
 ENV NIXPKGS_ALLOW_UNFREE=1
-RUN nix-env -iA nixpkgs.google-chrome
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.google-chrome
