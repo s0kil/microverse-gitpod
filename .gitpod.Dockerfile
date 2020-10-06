@@ -6,7 +6,6 @@ SHELL ["/bin/bash", "-c"]
 RUN curl -L https://nixos.org/nix/install | sh
 RUN echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
 
-RUN source ~/.bashrc
 ENV PATH="$PATH:$HOME/.nix-profile/bin"
 ENV NIXPKGS_ALLOW_UNFREE=1
 
@@ -37,10 +36,10 @@ RUN nix-env -iA nixpkgs.postgresql
 RUN nix-env -iA nixpkgs.imagemagick
 
 # Ruby on Rails
-# RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
-#   && gem update --system --no-document \
-#   && gem update --no-document \
-#   && gem install rails --no-document"
+RUN source ~/.rvm/scripts/rvm
+RUN gem update --system --no-document
+RUN gem update --no-document
+RUN gem install rails --no-document
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
