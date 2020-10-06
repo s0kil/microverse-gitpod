@@ -38,9 +38,11 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libsass
 # RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs-14_x
 
 # Ruby on Rails
-RUN . ~/.rvm/scripts/rvm
-RUN gem pristine --all
-RUN gem update --no-document
+RUN /bin/bash -c "source ~/.rvm/scripts/rvm && gem update --system --no-document && gem update --no-document"
+
+# RUN . ~/.rvm/scripts/rvm
+# RUN gem pristine --all
+# RUN gem update --no-document
 #RUN ~/.nix-profile/bin/gem install psych --no-document --force
 #RUN ~/.nix-profile/bin/gem install rails --no-document
 
