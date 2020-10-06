@@ -26,6 +26,8 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.mupdf
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.redis
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.sqlite
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ffmpeg
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libyaml
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libtool
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.mysql80
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gnupatch
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.memcached
