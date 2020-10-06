@@ -20,4 +20,3 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.postgresql
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
-RUN ~/.nix-profile/bin/nix-store --optimize
