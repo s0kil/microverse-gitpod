@@ -15,12 +15,7 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.google-chrome
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.firefox
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.geckodriver
 
-# General
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.yarn
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby_2_7
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs-14_x
-
-# Ruby on Rails
+# Common
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gmp
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.mupdf
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.redis
@@ -33,6 +28,13 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gnupatch
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.memcached
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.postgresql
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.imagemagick
+
+# Development Tools
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.yarn
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby_2_7
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs-14_x
+
+# Ruby on Rails
 RUN ~/.nix-profile/bin/gem update --system
 RUN ~/.nix-profile/bin/gem update
 RUN ~/.nix-profile/bin/gem install rails
