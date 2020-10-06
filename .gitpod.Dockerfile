@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-c"]
 RUN curl -L https://nixos.org/nix/install | sh
 RUN echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
 
-RUN . ~/.nix-profile/etc/profile.d/nix.sh
+RUN source ~/.bashrc
 ENV NIXPKGS_ALLOW_UNFREE=1
 
 # Chrome + Chromium + Driver
