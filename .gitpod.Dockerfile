@@ -16,9 +16,9 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.firefox
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.geckodriver
 
 # General
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.yarn
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby_2_7
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs-14_x
 
 # Ruby on Rails
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gmp
@@ -31,7 +31,12 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gnupatch
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.memcached
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.postgresql
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.imagemagick
+RUN ~/.nix-profile/bin/gem update --system
+RUN ~/.nix-profile/bin/gem update
 RUN ~/.nix-profile/bin/gem install rails
+
+# Update `.bashrc`
+# RUN echo "PATH=\"$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH\""
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
