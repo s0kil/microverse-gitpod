@@ -28,13 +28,17 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gnupatch
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.memcached
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.postgresql
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.imagemagick
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libxml2
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libxslt
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.libsass
 
 # Development Tools
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.yarn
-RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby_2_7
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs-14_x
 
 # Ruby on Rails
+RUN ~/.nix-profile/bin/gem pristine --all
 RUN ~/.nix-profile/bin/gem update --no-document
 RUN ~/.nix-profile/bin/gem install rails --no-document
 
