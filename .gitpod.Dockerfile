@@ -6,13 +6,20 @@ RUN echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
 
 ENV NIXPKGS_ALLOW_UNFREE=1
 
-# Chromium + Driver
+# Chrome + Chromium + Driver
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.chromium
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.chromedriver
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.google-chrome
 
 # Firefox + Driver
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.firefox
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.geckodriver
+
+# General
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.ruby
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.yarn
+RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs
+RUN ~/.nix-profile/bin/gem update --system
 
 # Ruby on Rails
 RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.gmp
