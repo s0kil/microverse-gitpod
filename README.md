@@ -20,7 +20,7 @@
 - Open your GitHub project in Gitpod:
   - Example: `https://gitpod.io/#https://github.com/e71az/private-events`
 
-## Ruby on Rails Configuration
+### Ruby on Rails Configuration
 
 In order for Rails server to allow Gitpod preview access, let's configure it.
 
