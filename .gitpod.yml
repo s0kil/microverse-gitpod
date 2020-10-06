@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: s0kil/microverse-gitpod
 
 ports:
   - port: 6080

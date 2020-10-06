@@ -15,7 +15,7 @@
 
 ## How To Utilize
 
-- Copy `.gitpod.Dockerfile` and `.gitpod.yml` files (with their contents) to the root folder in your project directory
-- Commit and push both files to GitHub
+- Copy the `.gitpod.yml` file (with its contents) to the root folder of your project directory
+- Commit and push to GitHub
 - Open your GitHub project in Gitpod:
   - Example: `https://gitpod.io/#https://github.com/microverseinc/linters-config`
