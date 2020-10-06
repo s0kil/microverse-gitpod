@@ -36,10 +36,10 @@ RUN nix-env -iA nixpkgs.postgresql
 RUN nix-env -iA nixpkgs.imagemagick
 
 # Ruby on Rails
-RUN source ~/.rvm/scripts/rvm
-RUN gem update --system --no-document
-RUN gem update --no-document
-RUN gem install rails --no-document
+RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
+  && gem update --system --no-document \
+  && gem update --no-document \
+  && gem install rails --no-document"
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
