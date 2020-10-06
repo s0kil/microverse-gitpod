@@ -14,7 +14,7 @@
 - Preinstalled And Prebuilt Packages
   - We pre-install many tools, so you don't waist your time waiting on "Building native extensions. This could take a while..."
 
-## Preinstalled With:
+## Preinstalled Tools
 
 - eslint
 - hint
