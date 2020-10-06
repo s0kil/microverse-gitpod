@@ -48,3 +48,8 @@ vscode:
     - ritwickdey.LiveServer@5.6.1:5Mhl1RgVVDcIym163x8r+w==
     - PKief.material-icon-theme@4.3.0:URe4ANXBLYHzB6CeGyTN8A==
     - formulahendry.code-runner@0.11.0:HNAnyDKL6fUn1G8QfbKLpQ==
+    - vscode.git@1.49.3:h7eabJkE7MJAL/dgN28nkg==
+    - vscode.git-ui@1.49.3:8zXGkpIoxU8uDxQARdkKAg==
+    - vector-of-bool.gitflow@1.2.1:xjPKO1kQGbSQBAHVYAZG9g==
+    - KnisterPeter.vscode-github@0.30.4:2VfqCD2ylXzrXT7Lc5iN3Q==
+    - aliariff.vscode-erb-beautify@0.2.0:q+zrJTVKf5jjU0o9PupRjQ==
