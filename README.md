@@ -1,5 +1,19 @@
 # Microverse Gitpod Configuration
 
+## Benefits Of Using Gitpod Instead Of Your Local Machine
+
+- Consistent Performance
+  - After the first boot-up and installing editor extensions, Gitpod is consistent, Zoom is not stressing it's CPU, Chrome is not devouring it's RAM.
+- Unlimited Internet
+  - Gitpod has 1Gbps download/upload speeds, which means: No longer are you waisting your time and money (assuming capped data plan) to install Ruby, Node packages for every project.
+- Resilient
+  - Your power might go out, maybe you forgot to commit and push your changes, Gitpod does not care, it's still running.
+
+## Benefits Of Using This Gitpod Configuration Instead Of Your Own
+
+- Preinstalled And Prebuilt Packages
+  - We pre-install many tools, so you don't waist your time waiting on "Building native extensions. This could take a while..."
+
 ## Preinstalled With:
 
 - eslint
