@@ -39,7 +39,8 @@ RUN nix-env -iA nixpkgs.imagemagick
 RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
   && gem update --system --no-document \
   && gem update --no-document \
-  && gem install rubocop rails rspec --no-document"
+  && gem install rubocop rails rspec --no-document \
+  && rails new empty-rails && rm -rf empty-rails"
 
 # HTML, CSS, JavaScript
 RUN /bin/bash -c "npm update --global \
