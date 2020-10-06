@@ -40,6 +40,7 @@ RUN ~/.nix-profile/bin/nix-env -iA nixpkgs.nodejs-14_x
 # Ruby on Rails
 RUN ~/.nix-profile/bin/gem pristine --all
 RUN ~/.nix-profile/bin/gem update --no-document
+RUN ~/.nix-profile/bin/gem install psych --no-document --force
 RUN ~/.nix-profile/bin/gem install rails --no-document
 
 # Update `.bashrc`
