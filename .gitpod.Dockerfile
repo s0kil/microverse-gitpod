@@ -1,5 +1,7 @@
 FROM gitpod/workspace-full-vnc
 
+SHELL ["/bin/bash", "-c"]
+
 # Install Nix
 RUN curl -L https://nixos.org/nix/install | sh
 RUN echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
@@ -34,10 +36,10 @@ RUN nix-env -iA nixpkgs.postgresql
 RUN nix-env -iA nixpkgs.imagemagick
 
 # Ruby on Rails
-RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
-  && gem update --system --no-document \
-  && gem update --no-document \
-  && gem install rails --no-document"
+# RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
+#   && gem update --system --no-document \
+#   && gem update --no-document \
+#   && gem install rails --no-document"
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
