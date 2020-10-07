@@ -1,11 +1,13 @@
 image: s0kil/microverse-gitpod
 
 ports:
+  # VNC
   - port: 6080
     onOpen: open-browser
-  - port: 5900
+  # Chrome Services
+  - port: 9514
     onOpen: ignore
-  - port: 35900
+  - port: 9515
     onOpen: ignore
 
 vscode:
