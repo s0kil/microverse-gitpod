@@ -13,7 +13,8 @@ ENV NIXPKGS_ALLOW_UNFREE=1
 RUN nix-env -iA nixpkgs.chromium
 RUN nix-env -iA nixpkgs.chromedriver
 RUN nix-env -iA nixpkgs.google-chrome
-RUN sudo ln -s /home/gitpod/.nix-profile/bin/google-chrome-stable /usr/bin/google-chrome
+RUN printf \#\!'/usr/bin/env sh\nexec /home/gitpod/.nix-profile/bin/google-chrome-stable --no-sandbox "$@"' | sudo tee /usr/bin/google-chrome
+RUN sudo chmod +x /usr/bin/google-chrome
 
 # Firefox + Driver
 RUN nix-env -iA nixpkgs.firefox
