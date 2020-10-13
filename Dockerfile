@@ -34,7 +34,6 @@ RUN nix-env -iA nixpkgs.libxslt
 RUN nix-env -iA nixpkgs.libsass
 RUN nix-env -iA nixpkgs.gnupatch
 RUN nix-env -iA nixpkgs.memcached
-RUN nix-env -iA nixpkgs.postgresql
 RUN nix-env -iA nixpkgs.imagemagick
 
 # Ruby on Rails
@@ -54,10 +53,15 @@ RUN /bin/bash -c "source ~/.rvm/scripts/rvm \
 
 # Puppeteer Dependencies
 # https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#chrome-headless-doesnt-launch-on-unix
-RUN sudo apt-get update \
-  && sudo apt-get install --yes gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget \
-  && sudo apt-get clean \
-  && sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/*
+RUN sudo apt-get update
+RUN sudo apt-get install --yes gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+
+# PostgreSQL
+# https://wiki.postgresql.org/wiki/Apt#PostgreSQL_packages_for_Debian_and_Ubuntu
+RUN curl -s https://salsa.debian.org/postgresql/postgresql-common/raw/master/pgdg/apt.postgresql.org.sh | sudo /bin/bash -s
+RUN sudo apt-get install --yes postgresql-13
+RUN sudo pg_ctlcluster 13 main start
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
+RUN sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/*
