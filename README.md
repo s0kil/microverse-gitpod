@@ -9,30 +9,29 @@
 - Resilient
   - Your power might go out, maybe you forgot to commit and push your changes, Gitpod does not care, it's still running.
 
-## Benefits Of Using This Gitpod Configuration Instead Of Your Own
-
-- Preinstalled And Prebuilt Packages
-  - We pre-install many tools, so you don't waist your time waiting on "Building native extensions. This could take a while..."
-
 ## Preinstalled Tools
 
-- eslint
-- hint
-- lighthouse
-- node
-- npm
-- rails
-- rspec
-- rubocop
-- stylelint
-- yarn
+- Chrome (including chromedriver)
+- ESLint
+- Firefox (including geckodriver)
+- Hint
+- Lighthouse
+- Node
+- NPM
+- PostgreSQL
+- Rails
+- RSpec
+- Rubocop
+- Ruby
+- Stylelint
+- Yarn
 
 ## How To Utilize
 
 - Copy the `.gitpod.yml` file (with its contents) to the root folder of your Git project directory
 - Commit and push to GitHub
 - Open your GitHub project in Gitpod:
-  - Example: `https://gitpod.io/#https://github.com/e71az/private-events`
+  - Example: `https://gitpod.io/#https://github.com/s0kil/microverse-gitpod-test-rubyonrails`
 
 ### Ruby on Rails Configuration
 
@@ -45,3 +44,5 @@ Rails.application.configure do
   config.hosts = nil #<-- Add This Line
 end
 ```
+
+Restart the Rail server.
