@@ -11,18 +11,30 @@
 
 ## Preinstalled Tools
 
+- Apache2
+- C++
 - Chrome (including chromedriver)
 - ESLint
 - Firefox (including geckodriver)
+- Git
+- Go
 - Hint
+- Java
 - Lighthouse
+- Nginx
 - Node
 - NPM
+- NVM
+- PHP
 - PostgreSQL
+- Python
 - Rails
 - RSpec
 - Rubocop
 - Ruby
+- Rust
+- RVM
+- SQLite
 - Stylelint
 - Yarn
 
