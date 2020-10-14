@@ -58,10 +58,31 @@ RUN sudo apt-get install --yes gconf-service libasound2 libatk1.0-0 libc6 libcai
 
 # PostgreSQL
 # https://wiki.postgresql.org/wiki/Apt#PostgreSQL_packages_for_Debian_and_Ubuntu
-RUN curl -s https://salsa.debian.org/postgresql/postgresql-common/raw/master/pgdg/apt.postgresql.org.sh | sudo /bin/bash -s
-RUN sudo apt-get install --yes postgresql-13
-RUN sudo pg_ctlcluster 13 main start
+# https://github.com/gitpod-io/workspace-images/blob/master/postgres/Dockerfile
+
+# Install PostgreSQL
+RUN sudo apt-get update && sudo apt-get install -y postgresql-12 postgresql-contrib-12
+
+# Setup PostgreSQL server for user gitpod
+ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
+ENV PGDATA="/workspace/.pgsql/data"
+RUN mkdir -p ~/.pg_ctl/bin ~/.pg_ctl/sockets \
+  && printf '#!/bin/bash\n[ ! -d $PGDATA ] && mkdir -p $PGDATA && initdb -D $PGDATA\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" start\n' > ~/.pg_ctl/bin/pg_start \
+  && printf '#!/bin/bash\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" stop\n' > ~/.pg_ctl/bin/pg_stop \
+  && chmod +x ~/.pg_ctl/bin/*
+ENV PATH="$PATH:$HOME/.pg_ctl/bin"
+ENV DATABASE_URL="postgresql://gitpod@localhost"
+ENV PGHOSTADDR="127.0.0.1"
+ENV PGDATABASE="postgres"
+
+# This is a bit of a hack. At the moment we have no means of starting background
+# tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the
+# PostgreSQL server is running, and if not starts it.
+RUN printf "\n# Auto-start PostgreSQL server.\n[[ \$(pg_ctl status | grep PID) ]] || pg_start > /dev/null\n" >> ~/.bashrc
 
 # Clean Up
 RUN ~/.nix-profile/bin/nix-collect-garbage
+RUN sudo apt-get autoremove --yes
+RUN sudo apt-get autoclean
+RUN sudo apt-get clean
 RUN sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/*
